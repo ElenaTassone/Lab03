@@ -46,22 +46,43 @@ public class Dictionary {
 		
 	}
 	
-//	public ArrayList<RichWord> spellCheckText2(List<String> inputTextList){
-//		ArrayList <RichWord> listaParole = new ArrayList <RichWord> ();
-//		RichWord word = null ;
-//		for(String s : inputTextList){
-//			word = new RichWord(s);
-//			if(this.doRicerca(s)){
-//				word.setCorretta(true);
-//				listaParole.add(word);
-//			}
-//			
+	public ArrayList<RichWord> spellCheckText2(List<String> inputTextList){
+		ArrayList <RichWord> listaParole = new ArrayList <RichWord> ();
+		RichWord word = null ;
+		for(String s : inputTextList){
+			word = new RichWord(s);
+			if(this.doRicerca(s)){
+				word.setCorretta(true);
+			}
+			listaParole.add(word);
+			}		
+		
+			return listaParole;
+		
+	}
 
-//}		
-//		
-//		
-//		return null;
-//		
-//	}
+	public boolean doRicerca(String s) {
+		int posIniziale = 0;
+		int posFinale = dizionario.size()-1;
+		int posCentrale;
+		boolean trovato = false;
+		
+		while ( trovato==false && posIniziale<posFinale){
+		
+			posCentrale=(posFinale+posIniziale)/2;
+			
+			if(s.compareTo(dizionario.get(posCentrale))==0){
+				trovato= true;
+				}
+
+			if(s.compareTo(dizionario.get(posCentrale))<0){
+				posFinale=posCentrale-1;
+				}
+			if(s.compareTo(dizionario.get(posCentrale))>0){
+				posIniziale = posCentrale+1;
+				}
+			}
+		return trovato;
+	}
 	
 }

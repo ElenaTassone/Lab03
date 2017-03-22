@@ -58,7 +58,7 @@ import javafx.event.ActionEvent;
 	    	for(String s : parole){
 	    		inputText.add(s);
 	    	}
-	    	ArrayList<RichWord> risultato =  dizionario.spellCheckText(inputText);
+	    	ArrayList<RichWord> risultato =  dizionario.spellCheckText2(inputText);
 	    	ArrayList<RichWord> errori = new ArrayList<RichWord> ();
 	    	for(RichWord r : risultato){
 	    		if(r.isCorretta()==false){
